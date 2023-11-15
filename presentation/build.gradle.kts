@@ -8,18 +8,18 @@ plugins {
 }
 
 android {
-    namespace = "com.sceleton.presentation"
+    namespace = "com.arch.presentation"
     compileSdk = Versions.compileSdk
     buildFeatures.dataBinding = true
     defaultConfig {
         Versions.appliccationId
         minSdk = Versions.minSdk
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
+
     buildTypes {
         getByName("debug") {
             isMinifyEnabled = false
@@ -57,12 +57,10 @@ android {
 }
 
 dependencies {
-    implementation(Depend.multidexAndroidLib)
     implementation(project(path = ":comm"))
     implementation(project(path = ":portDomain"))
     Depend.kotlinDependency.forEach { implementation(it) }
-    //Module
-//    implementation(project(path = ":domain"))
+
     Depend.supportAndroidLibs.forEach { implementation(it) }
     // Dagger
     Depend.dagger.forEach { implementation(it) }
@@ -72,6 +70,8 @@ dependencies {
     implementation(Depend.rxPermission)
     //Log
     implementation(Depend.timberJava)
+    implementation(Depend.glide)
+    kapt(Depend.glideAnnotationProcessor)
     //TEST
     testImplementation(Depend.testUnit)
     Depend.testRunner.forEach { androidTestImplementation(it) }

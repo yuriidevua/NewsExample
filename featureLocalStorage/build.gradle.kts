@@ -8,13 +8,12 @@ plugins {
 }
 
 android {
-    namespace = "com.sceleton.featurelocalstorage"
+    namespace = "com.arch.featurelocalstorage"
     compileSdk = Versions.targetSdk
 
 
     defaultConfig {
         minSdk = Versions.minSdk
-        multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         val daoName = Versions.dao_name
         buildConfigField ("String", "DAO_NAME","\"${daoName}\"")
@@ -55,13 +54,12 @@ android {
 }
 
 dependencies {
-    implementation(Depend.multidexAndroidLib)
-
-    Depend.dagger.forEach { implementation(it) }
+     Depend.dagger.forEach { implementation(it) }
     //RX
     Depend.rxAndroid.forEach { implementation(it) }
     //Room
     Depend.room.forEach { implementation(it) }
+    kapt(Depend.roomAnnotationProcessor)
     //Log
     implementation(Depend.timberJava)
     //TEST

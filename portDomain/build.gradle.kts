@@ -3,15 +3,15 @@ import org.jetbrains.kotlin.gradle.dsl.kotlinExtension
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
 }
 
 android {
-    namespace = "com.sceleton.portdomain"
+    namespace = "com.arch.portdomain"
     compileSdk = Versions.targetSdk
 
     defaultConfig {
         minSdk = Versions.minSdk
-        multiDexEnabled = true
         consumerProguardFiles("consumer-rules.pro")
     }
     buildTypes {
@@ -48,8 +48,6 @@ android {
 }
 
 dependencies {
-
-    implementation(Depend.multidexAndroidLib)
     Depend.dagger.forEach { implementation(it) }
     //RX
     Depend.rxAndroid.forEach { implementation(it) }

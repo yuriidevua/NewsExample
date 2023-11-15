@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="event"
+            type="com.arch.presentation.fragment.search.ISearch.Presenter" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="@string/search"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_search_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="12dp"
+            android:onClick="@{()->event.openDrawer()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_menu_night" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsw_search"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/iet_search_news"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="25dp"
+                    android:enabled="false"
+                    android:hint="@string/news_search__hint"
+                    app:hintTextAppearance="@style/hint_Text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_search_news"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:enabled="false"
+                        android:inputType="text"
+                        android:maxLength="20"
+                        android:maxLines="1"
+                        android:textColor="@android:color/white"
+                        android:textIsSelectable="false"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:theme="@style/hint_edit_Text"
+                        app:layout_constraintTop_toTopOf="@+id/iet_search_news" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/sw_search_news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/iet_search_news"
+                    app:layout_constraintEnd_toEndOf="@+id/iet_search_news"
+                    app:layout_constraintTop_toTopOf="@+id/iet_search_news"
+                    app:thumbTint="@android:color/white"
+                    app:track="@drawable/switch_gradient"
+                    tools:checked="false" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_search_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="32dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/news_search_date"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iet_search_news"
+                    tools:text="Select a date" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_search_date_from"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="50dp"
+                    android:onClick="@{()->event.onClickDataFrom()}"
+                    android:text="@string/news_search_from"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_search_date"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_search_date_to"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="48dp"
+                    android:onClick="@{()->event.onClickDataTo()}"
+                    android:text="@string/news_search_to"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_search_date"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_search_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/news_by_country"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/gl_search_guideline" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/sw_country_news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_search_rv"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_search_rv"
+                    app:layout_constraintTop_toTopOf="@+id/tv_search_rv"
+                    app:layout_constraintVertical_bias="0.727"
+                    app:thumbTint="@android:color/white"
+                    app:track="@drawable/switch_gradient"/>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_search_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.50" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_search_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:onClick="@{()->event.onClickCancel()}"
+                    android:text="@string/news_search_cancel"
+                    android:background="@drawable/round_button"
+                    android:textAllCaps="false"
+                    app:layout_constraintBottom_toTopOf="@+id/gl_search_guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="Cancel" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_search_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="28dp"
+                    android:onClick="@{()->event.onClickOk()}"
+                    android:text="@string/news_search_ok"
+                    android:background="@drawable/round_button"
+                    android:textAllCaps="false"
+                    app:layout_constraintBottom_toTopOf="@+id/gl_search_guideline"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Ok" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_search_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_search_rv"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_search_date_from"
+                    app:layout_constraintStart_toEndOf="@+id/tv_search_date_from"
+                    app:layout_constraintTop_toTopOf="@+id/tv_search_date_from"
+                    app:srcCompat="@drawable/ic_calendar_n" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_search_date_to"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_search_date_to"
+                    app:srcCompat="@drawable/ic_calendar_n" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_search_splash"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rv_search_country"
+                    app:layout_constraintStart_toStartOf="@+id/rv_search_country"
+                    app:layout_constraintTop_toTopOf="@+id/rv_search_country"
+                    app:srcCompat="@drawable/planet_earth" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

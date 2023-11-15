@@ -8,12 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.sceleton.domain"
+    namespace = "com.arch.domain"
     compileSdk = Versions.targetSdk
 
     defaultConfig {
         minSdk = Versions.minSdk
-        multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -52,7 +51,6 @@ android {
 }
 
 dependencies {
-    implementation(Depend.multidexAndroidLib)
     implementation(project(path = ":comm"))
     implementation(project(path = ":portDomain"))
     implementation(project(path = ":portData"))
@@ -61,9 +59,12 @@ dependencies {
     Depend.rxAndroid.forEach { implementation(it) }
     //Log
     implementation(Depend.timberJava)
+    implementation(project(mapOf("path" to ":presentation")))
     //TEST
     testImplementation(Depend.testUnit)
     Depend.testRunner.forEach { androidTestImplementation(it) }
+    implementation(Depend.glide)
+    kapt(Depend.glideAnnotationProcessor)
 }
 kapt {
     mapDiagnosticLocations = true

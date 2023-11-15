@@ -2,4 +2,35 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="purple_200">#676E4D</color>
+    <color name="purple_500">#51573B</color>
+    <color name="purple_700">#51573B</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black_alpha">#4D000000</color>
+    <color name="alpha">#00000000</color>
+    <color name="alpha_30">#4D000000</color>
+    <color name="dark">#353535</color>
+    <color name="green">#347737</color>
+    <color name="red">#F44336</color>
+    <color name="textBackground">#171716</color>
+    <color name="background">#171716</color>
+    <color name="yellow">#FCC52A</color>
+    <color name="progressBackground">#80000000</color>
+    <color name="btn_light">#A8A680</color>
+    <color name="gray">#C4C4C4</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="btn_disabled">#36443A</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="background_content">#4e4e4e</color>
+    <color name="color_progress_f2">#F27FD0</color>
+    <color name="color_progress_35">#3595F8</color>
+
+    <color name="select_language_ok">#f70404</color>
+    <color name="select_language_not">#ffffff</color>
+    <color name="ripple_color">#ffffff</color>
+    <color name="event_btn">#80212121</color>
 </resources>

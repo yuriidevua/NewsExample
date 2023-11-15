@@ -1,10 +1,11 @@
-object Versions {
+ object Versions {
     const val varsionJava = 18
     const val versionName = "1.0"
     const val versionCode = 1
-    const val appName = "AndroidKtsSkeletonBase"
-    const val appliccationId = "com.sceleton.androidktsskeletonbase"
-    const val base_url = "https://"
+    const val appName = "News"
+    const val appliccationId = "com.arch.news"
+    const val base_url = "https://newsapi.org"
+    const val api_key = "7b2e2d90925644038c883f86e18b1fe2"
     const val base_url_wws = "ws://"
     const val dao_name = "dao_"
     const val servicesPlugin = "3.2.0"
@@ -61,7 +62,7 @@ object Versions {
         // Timber
         const val timber = "4.7.1"
         // Glide
-        const val glide = "4.7.1"
+        const val glide = "4.14.2"
 
         const val autoValueGoogle = "1.10.1"
         //Apache

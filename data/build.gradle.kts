@@ -8,13 +8,12 @@ plugins {
 }
 
 android {
-    namespace = "com.sceleton.data"
+    namespace = "com.arch.data"
     compileSdk = Versions.targetSdk
 
 
     defaultConfig {
         minSdk = Versions.minSdk
-        multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -53,10 +52,10 @@ android {
 }
 
 dependencies {
-    implementation(Depend.multidexAndroidLib)
     implementation(project(path = ":comm"))
     implementation(project(path = ":portData"))
     implementation(project(path = ":featureLocalStorage"))
+    implementation(project(path = ":featureRemoteApi"))
     Depend.dagger.forEach { implementation(it) }
     //RX
     Depend.rxAndroid.forEach { implementation(it) }

@@ -8,14 +8,13 @@ plugins {
 }
 
 android {
-    namespace = "com.sceleton.comm"
+    namespace = "com.arch.comm"
     compileSdk = Versions.compileSdk
 
     defaultConfig {
         minSdk = Versions.minSdk
         val sharedName = Versions.sharedName
         buildConfigField ("String", "SHARED_NAME","\"${sharedName}\"")
-        multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -54,7 +53,10 @@ android {
 }
 
 dependencies {
-    implementation(Depend.multidexAndroidLib)
     Depend.dagger.forEach { implementation(it) }
     Depend.apache.forEach { implementation(it) }
+    //Gson
+    implementation(Depend.gson)
+    kapt(Depend.AutoValueAnnotationProcessor)
+    compileOnly(Depend.googleAutoValueCompileOnly)
 }

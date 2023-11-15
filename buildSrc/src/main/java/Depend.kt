@@ -6,7 +6,8 @@ object Depend {
         "androidx.recyclerview:recyclerview:${Versions.SupportAndroidLibs.recyclerview}",
         "com.google.android.material:material:${Versions.SupportAndroidLibs.materialDesign}",
         "androidx.constraintlayout:constraintlayout:${Versions.SupportAndroidLibs.constraintLayout}",
-        "androidx.window:window:${Versions.SupportAndroidLibs.androidWindow}"
+        "androidx.window:window:${Versions.SupportAndroidLibs.androidWindow}",
+        "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
     )
 
     val androidCameraX = arrayOf(
@@ -63,7 +64,7 @@ object Depend {
         "com.squareup.okhttp3:okhttp-urlconnection:${Versions.Libraries.okHttp}",
         "com.squareup.retrofit2:retrofit:${Versions.Libraries.retrofit}",
         "com.squareup.retrofit2:converter-gson:${Versions.Libraries.retrofit}",
-        "com.squareup.retrofit2:adapter-rxjava2:${Versions.Libraries.retrofit}"
+        "com.squareup.retrofit2:adapter-rxjava3:${Versions.Libraries.retrofit}"
     )
 
     val retrofitConvert =  "com.squareup.retrofit2:converter-gson:${Versions.Libraries.retrofit}"
@@ -91,7 +92,7 @@ object Depend {
     const val timberJava = "com.jakewharton.timber:timber:${Versions.Libraries.timber}"
 
     // Glide
-    const val libraries = "com.github.bumptech.glide:glide:${Versions.Libraries.glide}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.Libraries.glide}"
 
     // Glide AnnotationProcessor
     const val glideAnnotationProcessor = "com.github.bumptech.glide:compiler:${Versions.Libraries.glide}"

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="event"
+            type="com.arch.presentation.fragment.web.IWeb.Presenter"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_web_panel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_web_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/menu_header_bottom"
+                android:layout_marginStart="@dimen/menu_header_left"
+                android:layout_marginTop="@dimen/menu_header_top"
+                android:onClick="@{()->event.menu()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.558"
+                app:srcCompat="@drawable/ic_menu_night" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_web_description_layout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/web_new_bottom"
+                android:layout_marginEnd="@dimen/web_new_right"
+                android:layout_marginStart="@dimen/web_new_left"
+                android:layout_marginTop="@dimen/web_new_top"
+                android:gravity="center"
+                android:text="@string/news_web"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/web_new_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iv_web_favorites"
+                app:layout_constraintStart_toEndOf="@+id/iv_web_menu"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_web_favorites"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/web_favorites_bottom"
+                android:layout_marginEnd="@dimen/web_favorites_right"
+                android:layout_marginTop="@dimen/web_new_top"
+                android:onClick="@{()->event.saveNews()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/gl_web_guideline"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_pin" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_web_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.85" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_web_share"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/web_share_bottom"
+                android:layout_marginEnd="@dimen/web_share_right"
+                android:layout_marginStart="@dimen/web_share_left"
+                android:layout_marginTop="@dimen/web_share_top"
+                android:onClick="@{()->event.shareContent()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/gl_web_guideline"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_menu_share" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.arch.presentation.custom_view.WebViewScroll
+            android:id="@+id/wvs_web"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_web_panel" />
+
+        <ProgressBar
+            android:id="@+id/pb_web_progress_bar"
+            style="@android:style/Widget.DeviceDefault.ProgressBar"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/progress_indicator"
+            app:layout_constraintBottom_toBottomOf="@+id/wvs_web"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/wvs_web" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</layout>

@@ -11,6 +11,7 @@ android {
     lint {
         abortOnError = false
     }
+    compileOptions.incremental = false
     buildFeatures.dataBinding = true
     namespace = Versions.appliccationId
     compileSdk = Versions.compileSdk
@@ -38,7 +39,6 @@ android {
         buildConfigField ("String", "APP_NAME","\"${appName}\"")
         setProperty("archivesBaseName", appName + "_" + versionName)
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
     }
 
@@ -87,26 +87,19 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-
-    implementation(Depend.multidexAndroidLib)
     Depend.kotlinDependency.forEach { implementation(it) }
     // Dagger
     Depend.dagger.forEach { implementation(it) }
     Depend.daggerAnnotationProcessor.forEach { kapt(it) }
-    //Retrofit and okHttp
-    Depend.okHttpLibraries.forEach { implementation(it) }
-    //Gson
-    implementation(Depend.gson)
-    kapt(Depend.AutoValueAnnotationProcessor)
-    compileOnly(Depend.googleAutoValueCompileOnly)
     //RX
     Depend.rxAndroid.forEach { implementation(it) }
     implementation(Depend.rxPermission)
     //Log
     implementation(Depend.timberJava)
 
+
 //    //Module
-    implementation(project(path = ":comm"))
+    api(project(path = ":comm"))
     implementation(project(path = ":portData"))
     implementation(project(path = ":data"))
     implementation(project(path = ":domain"))
@@ -114,6 +107,7 @@ dependencies {
     implementation(project(path = ":portDomain"))
     implementation(project(path = ":domain"))
     implementation(project(path = ":featureLocalStorage"))
+    implementation(project(path = ":featureRemoteApi"))
     testImplementation(Depend.testUnit)
     Depend.testRunner.forEach { androidTestImplementation(it) }
 }

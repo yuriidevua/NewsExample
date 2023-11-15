@@ -6,12 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.sceleton.portdata"
+    namespace = "com.arch.portdata"
     compileSdk = Versions.targetSdk
 
     defaultConfig {
         minSdk = Versions.minSdk
-        multiDexEnabled = true
         consumerProguardFiles("consumer-rules.pro")
     }
     buildTypes {
@@ -48,7 +47,6 @@ android {
 }
 
 dependencies {
-    implementation(Depend.multidexAndroidLib)
     Depend.dagger.forEach { implementation(it) }
     //RX
     Depend.rxAndroid.forEach { implementation(it) }

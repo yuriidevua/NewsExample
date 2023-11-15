@@ -1,5 +1,27 @@
 <resources>
-    <string name="app_name">Android KTS Skeleton Base</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">News</string>
+    <string name="no_connect">internet not included</string>
+    <string name="news">News</string>
+    <string name="news_category">News Categories</string>
+    <string name="favorites">Favorites</string>
+    <string name="search">Search</string>
+    <!--Menu -->
+    <string name="news_web">NEWS</string>
+    <string name="favorites_news">Favorites news</string>
+    <string name="news_search">News search</string>
+    <string name="news_by_country">Search by country</string>
+    <string name="news_search_from">From</string>
+    <string name="news_search_to">To</string>
+    <string name="news_search_date">Select a date</string>
+    <string name="news_search_country">display news for the selected country</string>
+    <string name="news_search_ok">Ok</string>
+    <string name="news_search_cancel">Cancel</string>
+    <string name="news_search__hint">search news</string>
+    <string name="select_language_news">Select the language of the news</string>
+    //Nav Draw
+    <string name="nav_drawer_main">main</string>
+    <string name="nav_drawer_favorites">favorites</string>
+    <string name="nav_drawer_search">search</string>
+
+
 </resources>

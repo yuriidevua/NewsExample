@@ -17,16 +17,14 @@ dependencyResolutionManagement {
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version("0.6.0")
 }
-rootProject.name = "Android KTS Skeleton Base"
+rootProject.name = "News"
+
 include(":app")
-
-
 include(":data")
 include(":portData")
 include(":presentation")
-
-
 include(":domain")
 include(":portDomain")
 include(":featureLocalStorage")
 include(":comm")
+include(":featureRemoteApi")

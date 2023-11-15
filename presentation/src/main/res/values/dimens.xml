@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="news_header_left">32dp</dimen>
+  <dimen name="news_header_text_size">20sp</dimen>
+  <dimen name="menu_header_left">25dp</dimen>
+  <dimen name="menu_header_top">12dp</dimen>
+  <dimen name="menu_header_bottom">8dp</dimen>
+  <dimen name="logo_top">16dp</dimen>
+  <dimen name="logo_bottom">8dp</dimen>
+
+  <dimen name="web_new_left">8dp</dimen>
+  <dimen name="web_new_right">16dp</dimen>
+  <dimen name="web_new_top">8dp</dimen>
+  <dimen name="web_new_bottom">8dp</dimen>
+  <dimen name="web_new_size">20sp</dimen>
+
+  <dimen name="web_favorites_bottom">8dp</dimen>
+  <dimen name="web_favorites_right">24dp</dimen>
+  <dimen name="web_favorites_top">8dp</dimen>
+  <dimen name="web_share_top">8dp</dimen>
+  <dimen name="web_share_bottom">8dp</dimen>
+  <dimen name="web_share_right">24dp</dimen>
+  <dimen name="web_share_left">8dp</dimen>
+
+
+
+</resources>
