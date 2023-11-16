@@ -22,7 +22,6 @@ class NewsFavoritesPresenter @Inject constructor(private val view : IFavoritesNe
     override fun deleteNewsLocale(news: NewsModel) {
             router.isProgress(true)
             useCase.deleteFavoritesLocale(news)
-            view.deleteItemAdapter(news)
     }
 
     override fun selectedNews(item: NewsModel) {
@@ -54,8 +53,9 @@ class NewsFavoritesPresenter @Inject constructor(private val view : IFavoritesNe
         view.updateListAdapter(list)
     }
 
-    override fun successDeleteFavorites() {
+    override fun successDeleteFavorites(news: NewsModel) {
         router.isProgress(false)
+        view.deleteItemAdapter(news)
         view.showMessage("delete ok")
     }
 

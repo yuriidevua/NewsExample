@@ -40,7 +40,7 @@ class FavoritesUseCase @Inject constructor(private val repositoryDao : IReposito
             .flatMap{ repositoryDao.deleteFavorites(it) }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                if (::presenterListener.isInitialized)presenterListener.successDeleteFavorites()
+                if (::presenterListener.isInitialized)presenterListener.successDeleteFavorites(news)
             },{
                 if (::presenterListener.isInitialized)presenterListener
                     .onMessage(

@@ -14,7 +14,7 @@ interface IFavoritesUseCase {
     interface PresenterListener {
         fun listenerFavoritesPresenter(list : List<NewsModel>)
 
-        fun successDeleteFavorites()
+        fun successDeleteFavorites(news: NewsModel)
 
         fun onMessage(message : String)
     }

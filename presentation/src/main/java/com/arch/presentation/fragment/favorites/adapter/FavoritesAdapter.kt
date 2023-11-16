@@ -33,7 +33,7 @@ class FavoritesAdapter constructor(private val presenter: IFavoritesNews.Present
     fun deleteItem(item : NewsModel){
         val position = mList.indexOf(item)
         mList.remove(item)
-        if (mList.size > 1) notifyItemChanged(position,item)
+        if (mList.size > 1) notifyItemRemoved(position)
         else notifyDataSetChanged()
     }
 }

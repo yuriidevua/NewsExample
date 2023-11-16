@@ -1,6 +1,7 @@
 package com.arch.presentation.activity
 
 import android.os.Bundle
+import android.view.View
 import com.arch.presentation.R
 import com.arch.presentation.base.BaseActivity
 import com.arch.presentation.base.BasePresenter
@@ -64,7 +65,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
     }
 
     override fun isProgress(flag: Boolean) {
-
+        binding.progressBar.visibility = if(flag) View.VISIBLE else View.INVISIBLE
     }
 
     override fun hideBottomNavigation(flag: Boolean) {
