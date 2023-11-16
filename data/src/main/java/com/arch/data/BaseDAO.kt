@@ -11,6 +11,7 @@ abstract class BaseDAO {
         Single.just(data)
             .map {
                 Entry(
+                    id = it.id,
                     name = it.name,
                     author = it.author,
                     title = it.title,

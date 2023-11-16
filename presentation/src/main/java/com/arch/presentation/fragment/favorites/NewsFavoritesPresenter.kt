@@ -1,46 +1,66 @@
 package com.arch.presentation.fragment.favorites
 
+import com.arch.portdomain.favorites.IFavoritesUseCase
 import com.arch.portdomain.model.NewsModel
+import com.arch.presentation.router.ConstRouter
+import com.arch.presentation.router.IRouter
 import javax.inject.Inject
 
-class NewsFavoritesPresenter @Inject constructor() : IFavoritesNews.Presenter {
+class NewsFavoritesPresenter @Inject constructor(private val view : IFavoritesNews.View,
+    private val router : IRouter,private val useCase: IFavoritesUseCase.UseCaseFavorites)
+    : IFavoritesNews.Presenter,IFavoritesUseCase.PresenterListener {
     override fun init() {
-        TODO("Not yet implemented")
+        useCase.initListener(this)
+        useCase.loadLocalNews()
     }
 
-    override fun shareLink(position: Int) {
-        TODO("Not yet implemented")
+    override fun shareLink(item: NewsModel) {
+        item.url?.let {view.shareLink(it)}
     }
 
-    override fun deleteNewsLocale(news: NewsModel, position: Int) {
-        TODO("Not yet implemented")
+
+    override fun deleteNewsLocale(news: NewsModel) {
+            router.isProgress(true)
+            useCase.deleteFavoritesLocale(news)
+            view.deleteItemAdapter(news)
     }
 
-    override fun selectedNews(position: Int) {
-        TODO("Not yet implemented")
+    override fun selectedNews(item: NewsModel) {
+            router.transaction(ConstRouter.WEB_FRAGMENT.route,item)
     }
+
 
     override fun menu() {
-        TODO("Not yet implemented")
-    }
-
-    override fun utilTime(time: String?): String? {
-        TODO("Not yet implemented")
+        router.openDrawer()
     }
 
     override fun startView() {
-        TODO("Not yet implemented")
+
     }
 
     override fun stopView() {
-        TODO("Not yet implemented")
+
     }
 
     override fun pauseView() {
-        TODO("Not yet implemented")
+
     }
 
     override fun destroyView() {
-        TODO("Not yet implemented")
+        useCase.stopCase()
+    }
+
+    override fun listenerFavoritesPresenter(list: List<NewsModel>) {
+        view.updateListAdapter(list)
+    }
+
+    override fun successDeleteFavorites() {
+        router.isProgress(false)
+        view.showMessage("delete ok")
+    }
+
+    override fun onMessage(message: String) {
+        router.isProgress(false)
+        view.showMessage(message)
     }
 }

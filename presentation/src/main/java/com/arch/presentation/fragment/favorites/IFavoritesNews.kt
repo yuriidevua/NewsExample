@@ -10,22 +10,20 @@ interface IFavoritesNews {
 
         fun showMessage(message: String)
 
-        fun displayNews(list: List<NewsModel>)
+        fun updateListAdapter(list: List<NewsModel>)
 
-        fun notifyItemChanged(position: Int, size: Int)
+        fun deleteItemAdapter(item: NewsModel)
     }
 
     interface Presenter : BasePresenter{
         fun init()
 
-        fun shareLink(position: Int)
+        fun shareLink(item: NewsModel)
 
-        fun deleteNewsLocale(news: NewsModel, position: Int)
+        fun deleteNewsLocale(news: NewsModel)
 
-        fun selectedNews(position: Int)
+        fun selectedNews(item: NewsModel)
 
         fun menu()
-
-        fun utilTime(time: String?): String?
     }
 }

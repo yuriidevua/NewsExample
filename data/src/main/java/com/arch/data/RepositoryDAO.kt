@@ -17,20 +17,27 @@ class RepositoryDAO @Inject constructor(context : Context) :BaseDAO(),IRepositor
         storage = LocaleStorage(context)
     }
 
-    override fun saveFavorites(item: DataNews): Completable  =
-        mapperToEntry(item)
+    override fun saveFavorites(data: DataNews): Completable  =
+        mapperToEntry(data)
             .flatMapCompletable {storage.daoEntry().insertEntry(it)}
             .doOnError{Timber.tag(RepositoryDAO::class.simpleName).e(it)}
+            .doOnComplete {Timber.tag(RepositoryDAO::class.simpleName)
+                .e("save entry id %s",data.id)}
 
     override fun getFavorites(): Single<List<DataNews>> =
         storage.daoEntry().queryEntryList()
             .flatMap{mapperToData(it)}
             .doOnError{Timber.tag(RepositoryDAO::class.simpleName).e(it)}
+            .doOnSuccess {Timber.tag(RepositoryDAO::class.simpleName)
+                .e("getFavorites size  %s",it.size) }
 
-    override fun deleteFavorites(data: DataNews): Completable  =
+
+    override fun deleteFavorites(data: DataNews): Single<Int>  =
         mapperToEntry(data)
-            .flatMapCompletable {storage.daoEntry().deleteEntry(it)}
+            .flatMap{Single.just(storage.daoEntry().deleteEntry(it))}
             .doOnError{Timber.tag(RepositoryDAO::class.simpleName).e(it)}
+            .doOnSuccess {Timber.tag(RepositoryDAO::class.simpleName)
+                .e("delete entry id %s",it)}
 
     override fun deleteFavoritesTable(): Completable = storage.daoEntry().deleteTable()
         .doOnError{Timber.tag(RepositoryDAO::class.simpleName).e(it)}

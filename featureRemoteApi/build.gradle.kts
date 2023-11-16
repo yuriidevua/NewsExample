@@ -66,4 +66,6 @@ dependencies {
 
     //Log
     implementation(Depend.timberJava)
+    testImplementation(Depend.testUnit)
+    Depend.testRunner.forEach { androidTestImplementation(it) }
 }

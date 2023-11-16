@@ -1,12 +1,9 @@
 package com.arch.domain
 
-import android.content.Context
-import android.graphics.Bitmap
 import com.arch.portdata.model.DataGroup
 import com.arch.portdata.model.DataNews
 import com.arch.portdomain.model.NewsGroupModel
 import com.arch.portdomain.model.NewsModel
-import com.bumptech.glide.Glide
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.CompletableTransformer
 import io.reactivex.rxjava3.core.FlowableTransformer
@@ -73,7 +70,8 @@ abstract class BaseInteractor {
                     it.url,
                     it.urlToImage,
                     it.publishedAt)
-            }.toList()
+            }.toSortedList { p1, p2 -> (p1?.publishedAt ?: "").compareTo(p2?.publishedAt ?: "") }
+
 
     fun mapperNewsList(news : DataNews) : Single<NewsModel> = Single.just(news)
         .map {  NewsModel(

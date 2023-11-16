@@ -48,6 +48,10 @@ abstract class BaseRouter(private val activity: DaggerAppCompatActivity) {
 
     protected fun transactionFragmentWithBackStack(fragment: DaggerFragment, container: Int) =
         activity.supportFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                R.anim.fragment_enter, R.anim.fragment_exit,
+                R.anim.fragment_pop_enter, R.anim.fragment_pop_exit
+            )
             .replace(container, fragment, fragment.javaClass.simpleName)
             .addToBackStack(null)
             .commit()
