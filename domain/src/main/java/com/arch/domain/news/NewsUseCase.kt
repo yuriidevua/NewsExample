@@ -1,6 +1,5 @@
 package com.arch.domain.news
 
-import android.content.Context
 import com.arch.comm.ErrorType
 import com.arch.domain.BaseInteractor
 import com.arch.portdata.IRepositoryApi

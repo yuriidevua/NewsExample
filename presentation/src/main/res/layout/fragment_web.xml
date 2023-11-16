@@ -7,6 +7,9 @@
         <variable
             name="event"
             type="com.arch.presentation.fragment.web.IWeb.Presenter"/>
+        <variable
+            name="item"
+            type="com.arch.portdomain.model.NewsModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -65,7 +68,7 @@
                 android:layout_marginBottom="@dimen/web_favorites_bottom"
                 android:layout_marginEnd="@dimen/web_favorites_right"
                 android:layout_marginTop="@dimen/web_new_top"
-                android:onClick="@{()->event.saveNews()}"
+                android:onClick="@{()->event.saveNews(item)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/gl_web_guideline"
                 app:layout_constraintTop_toTopOf="parent"
@@ -86,7 +89,6 @@
                 android:layout_marginEnd="@dimen/web_share_right"
                 android:layout_marginStart="@dimen/web_share_left"
                 android:layout_marginTop="@dimen/web_share_top"
-                android:onClick="@{()->event.shareContent()}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/gl_web_guideline"
@@ -109,7 +111,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cl_web_panel" />
 
-
+        <ProgressBar
+            android:id="@+id/pb_web_progress_bar"
+            style="@android:style/Widget.DeviceDefault.ProgressBar"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/progress_indicator"
+            app:layout_constraintBottom_toBottomOf="@+id/wvs_web"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/wvs_web" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

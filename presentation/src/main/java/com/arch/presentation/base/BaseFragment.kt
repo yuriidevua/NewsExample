@@ -27,7 +27,6 @@ import kotlin.math.min
 abstract class BaseFragment<Binding : ViewDataBinding> : DaggerFragment() {
     protected abstract fun getPresenter(): BasePresenter
     protected lateinit var binding: Binding
-        private set
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
